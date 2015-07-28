@@ -1,0 +1,22 @@
+<div class="container">
+
+		<h4>Список карточек</h4>
+		<table class="table table-hover">
+ 			<tr>
+ 				<td><strong>#</strong></td>
+ 				<td><strong>Исходный текст</strong></td>
+ 				<td><strong>Перевод</strong></td>
+ 				<td><strong>Дата перевода</strong></td>
+ 			</tr>
+ 			
+ 			<% @cards.each do |c| %>
+ 				<tr>
+ 					<td><%= c.id %></td>
+ 					<td><%= c.original_text %></td>
+ 					<td><%= c.translated_text %></td>
+ 					<td><%= c.review_date.strftime("%d/%m/%Y") %></td>
+ 				</tr>
+ 			<% end %>
+ 		</table>
+
+	</div>	
