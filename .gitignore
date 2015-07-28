@@ -6,6 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
+/assets/javascripts/cards.coffee
+/assets/javascripts/home.coffee
+
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
