@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-    c = Card.all.created_before(Time.now).count
-    @card = Card.created_before(Time.now).offset(rand(c)).first
+    @card = Card.created_before(Time.now).random_record
   end
 
   def check_translation

@@ -5,6 +5,11 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, :review_date, presence: true
   
   after_validation :set_review_date, on: [:create]
+  
+  def self.random_record
+    c = Card.all.created_before(Time.now).count
+    offset(rand(c)).first
+  end
 
   protected
   def set_review_date
