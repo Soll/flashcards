@@ -12,7 +12,7 @@ class Card < ActiveRecord::Base
   end
 
   def set_new_review_date
-    self.update_column(:review_date, 3.days.from_now)
+    update_column(:review_date, 3.days.from_now)
   end
 
   protected
