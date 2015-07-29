@@ -7,16 +7,24 @@ class Card < ActiveRecord::Base
   after_validation :set_review_date, on: [:create]
   
   def self.random_record
-    c = Card.all.created_before(Time.now).count
-    offset(rand(c)).first
+    offset(rand(Card.all.created_before(Time.now).count)).first
   end
 
   def set_new_review_date
     update_column(:review_date, 3.days.from_now)
   end
 
+  def check_translation(review_text)
+    if original_text.mb_chars.downcase == review_text
+      set_new_review_date
+      return true    
+    else
+      return false
+    end
+  end
+
   protected
   def set_review_date
-    self.review_date = 3.days.from_now
+    review_date = 3.days.from_now
   end
 end
