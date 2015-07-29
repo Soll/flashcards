@@ -1,0 +1,17 @@
+<div class="container col-md-7">
+<h3>Карточка # <%= @card.id %> </h3>
+<table class="table table-hover table-condensed table-bordered">
+  <tr>
+    <td>Оригинальный текст</td>
+    <td><%= @card.original_text %></td>
+  </tr>
+  <tr>
+    <td>Переведенный текст</td>
+    <td><%= @card.translated_text %></td>
+  </tr>
+  <tr>
+    <td>Дата пересмотра</td>
+    <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
+  </tr>  
+</table>
+</div>
