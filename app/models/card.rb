@@ -11,6 +11,10 @@ class Card < ActiveRecord::Base
     offset(rand(c)).first
   end
 
+  def set_new_review_date
+    self.update_column(:review_date, 3.days.from_now)
+  end
+
   protected
   def set_review_date
     self.review_date = 3.days.from_now
