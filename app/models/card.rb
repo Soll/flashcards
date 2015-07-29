@@ -7,7 +7,7 @@ class Card < ActiveRecord::Base
   after_validation :set_review_date, on: [:create]
   
   def self.random_record
-    offset(rand(Card.all.created_before(Time.now).count)).first
+    order("RANDOM()").first
   end
 
   def set_new_review_date
@@ -15,12 +15,7 @@ class Card < ActiveRecord::Base
   end
 
   def check_translation(review_text)
-    if original_text.mb_chars.downcase == review_text
-      set_new_review_date
-      return true    
-    else
-      return false
-    end
+    original_text.mb_chars.downcase == review_text.mb_chars.downcase ? true : false
   end
 
   protected
