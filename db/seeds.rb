@@ -11,18 +11,13 @@ row.each do |cell|
 	  case nodes_count
 	    when 0 
 	      @id = node.text.split(".").first.to_i
-	    end
-
 	    when 1
 	      @o_t = node.text
-	    end
-
 	    when 2
 	     @t_t = node.text
-	    end
+	  end
 	    
 	    nodes_count = nodes_count + 1  
 	  end
-	@r_d = Time.now  
-	Card.create(id: @id, original_text: @o_t, translated_text: @t_t, review_date: @r_d)
+	Card.create(id: @id, original_text: @o_t, translated_text: @t_t, review_date: Time.now)
 end
