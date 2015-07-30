@@ -3,11 +3,11 @@ class Card < ActiveRecord::Base
 
   validates_with StringCompare
   validates :original_text, :translated_text, :review_date, presence: true
-  
+    
   after_validation :set_review_date, on: [:create]
   
   def self.random_record
-    order("RANDOM()").first
+    offset(rand(Card.created_before(Time.now).count)).first
   end
 
   def set_new_review_date
@@ -15,7 +15,7 @@ class Card < ActiveRecord::Base
   end
 
   def check_translation(review_text)
-    original_text.mb_chars.downcase == review_text.mb_chars.downcase ? true : false
+    original_text.mb_chars.downcase == review_text.mb_chars.downcase
   end
 
   protected
