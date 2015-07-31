@@ -24,16 +24,27 @@ describe Card do
 
   it "must change date after correct translation" do
     card = FactoryGirl.create(:card)
-    expect(card.set_new_review_date).to be_valid
+    old_date = card.review_date
+    card.set_new_review_date
+    expect(card.review_date > old_date).to be true
   end
 
-  it "translation is incorrect shows proper page" do
-    visit root_path
+  it "incorrect translation shows proper page" do
     card = FactoryGirl.create(:card)
+    visit root_path
     fill_in "home_cards_review_text", with: "das is fantastish"
     click_button "Проверить"
-    expect(card.check_translation).to be false
+    expect(card.check_translation("das ist fantastish")).to be false
     expect(page).to have_content "Перевод неверен"
+  end
+
+  it "correct translation shows proper page" do
+    card = FactoryGirl.create(:card)
+    visit root_path
+    fill_in "home_cards_review_text", with: "das"
+    click_button "Проверить"
+    expect(card.check_translation("das")).to be true
+    expect(page).to have_content "Список карточек"
   end
 
 end
