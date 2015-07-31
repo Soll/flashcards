@@ -1,11 +1,11 @@
 class Card < ActiveRecord::Base
   scope :created_before, -> (data) { where("review_date <= ?", data) }
 
-  validates_with StringCompare
+  #validates_with StringCompare
   validates :original_text, :translated_text, :review_date, presence: true
     
   after_validation :set_review_date, on: [:create]
-  
+
   def self.random_record
     offset(rand(Card.created_before(Time.now).count)).first
   end
