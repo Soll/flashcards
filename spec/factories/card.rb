@@ -9,5 +9,4 @@ FactoryGirl.define do
       card.review_date { 3.days.from_now }
     end
   end
-
 end
