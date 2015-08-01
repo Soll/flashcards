@@ -1,12 +1,12 @@
-require 'rails_helper' 
+require 'rails_helper'
 
-describe Card do 
-  it "has a valid factory" do 
-    expect(FactoryGirl.create(:card)).to be_valid 
-  end 
+describe Card do
+  it "has a valid factory" do
+    expect(FactoryGirl.create(:card)).to be_valid
+  end
 
   it "parameter original text can't be blank" do
-  	expect(FactoryGirl.build(:card, original_text: nil)).not_to be_valid
+    expect(FactoryGirl.build(:card, original_text: nil)).not_to be_valid
   end
 
   it "parameter translated text can't be blank" do
@@ -46,5 +46,4 @@ describe Card do
     expect(card.check_translation("das")).to be true
     expect(page).to have_content "Список карточек"
   end
-
 end
