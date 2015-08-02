@@ -9,7 +9,7 @@ class HomeController < ApplicationController
       @card.set_new_review_date
       redirect_to cards_path
     else
-      render "check_translation"
+      render "error_translation"
     end  
   end
 end
