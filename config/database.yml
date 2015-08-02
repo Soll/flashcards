@@ -28,6 +28,7 @@ test:
   username: flashcards
   password: ys321artem
 
+
 production:
   <<: *default
   database: flashcards_production
