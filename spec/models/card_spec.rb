@@ -17,6 +17,10 @@ describe Card do
     expect(FactoryGirl.build(:card, review_date: nil)).not_to be_valid
   end
 
+  it "user id can't be blank" do
+    expect(FactoryGirl.build(:card, user_id: nil)).not_to be_valid
+  end
+
   it "must change date after correct translation" do
     card = FactoryGirl.create(:card)
     old_date = card.review_date
