@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  skip_before_filter :require_login, :only => [:index]
+
   def index
     @card = Card.created_before(Time.now).random_record
   end

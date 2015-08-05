@@ -13,5 +13,9 @@
     <td>Дата пересмотра</td>
     <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
   </tr>  
+  <tr>
+    <td>Владелец</td>
+    <td><%= @card.user.email %></td>
+  </tr>  
 </table>
 </div>

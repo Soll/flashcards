@@ -23,6 +23,6 @@ class Card < ActiveRecord::Base
 
   protected
   def set_review_date
-    review_date = 3.days.from_now
+    self.review_date = 3.days.from_now
   end
 end
