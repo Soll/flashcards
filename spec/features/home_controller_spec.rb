@@ -3,6 +3,7 @@ describe HomeController do
   before (:each) do
     @user = FactoryGirl.create(:user)
     @card = FactoryGirl.create(:card)
+    @card.update_column(:review_date, "2015-07-11 16:13:46.510735")
   end
   
   it "incorrect translation shows proper page" do

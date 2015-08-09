@@ -114,7 +114,7 @@ Rails.application.config.sorcery.configure do |config|
   #config.twitter.secret = ""
   #config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
   #config.twitter.user_info_mapping = {:email => "screen_name"}
-  #
+  # 
   config.facebook.key = "898606506860732"
   config.facebook.secret = "9e777f6606723f0f49842f88eff223ea"
   config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
@@ -122,26 +122,26 @@ Rails.application.config.sorcery.configure do |config|
   #config.facebook.access_permissions = ["email", "publish_actions"]
   #config.facebook.display = "page"
   #config.facebook.api_version = "v2.2"
-  #
+  # 
   config.github.key = "2d9563f5ff6224c68e37"
   config.github.secret = "573cef18be7b9cd92fcf0cf21c28c7293896f2e3"
   config.github.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=github"
   config.github.user_info_mapping = {:email => "name"}
-  #
+  # 
   config.google.key = "AIzaSyAKgnAegSKdehA97gdCppO_cZ9qj-X4QiQ"
   config.google.secret = "duoeGWt9SS_l0UGKS2NjlziK"
   config.google.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=google"
   config.google.user_info_mapping = {:email => "email", :username => "name"}
-  #
+  # 
   #config.vk.key = ""
   #config.vk.secret = ""
   #config.vk.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=vk"
   #config.vk.user_info_mapping = {:login => "domain", :name => "full_name"}
-  #
+  
   # To use liveid in development mode you have to replace mydomain.com with
   # a valid domain even in development. To use a valid domain in development
   # simply add your domain in your /etc/hosts file in front of 127.0.0.1
-  #
+  
   # config.liveid.key = ""
   # config.liveid.secret = ""
   # config.liveid.callback_url = "http://mydomain.com:3000/oauth/callback?provider=liveid"
@@ -431,25 +431,21 @@ Rails.application.config.sorcery.configure do |config|
     #
     # user.activity_timeout =
 
-
     # -- external --
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
     user.authentications_class = Authentication
 
-
     # User's identifier in authentications class.
     # Default: `:user_id`
     #
     # user.authentications_user_id_attribute_name =
 
-
     # Provider's identifier in authentications class.
     # Default: `:provider`
     #
     # user.provider_attribute_name =
-
 
     # User's external unique identifier in authentications class.
     # Default: `:uid`
