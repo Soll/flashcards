@@ -12,7 +12,11 @@
   <tr>
     <td>Дата пересмотра</td>
     <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
-  </tr>  
+  </tr>
+  <tr>
+    <td>Картинка</td>
+    <td><%= image_tag @card.avatar_url %></td>
+  </tr>
   <tr>
     <td>Владелец</td>
     <td><%= @card.user.email %></td>

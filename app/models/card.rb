@@ -1,12 +1,14 @@
 class Card < ActiveRecord::Base
   belongs_to :user
 
+  mount_uploader :avatar, AvatarUploader
+
   scope :created_before, -> (data) { where("review_date <= ?", data) }
 
   validates :original_text, :translated_text,
             :review_date, :user_id, presence: true
   validates_with StringCompare
-    
+
   after_validation :set_review_date, on: [:create]
 
   def self.random_record
