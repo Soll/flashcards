@@ -1,0 +1,22 @@
+<div class="container">
+	<h4>Регистрация нового пользователя</h4>
+	<%= form_for @user, html: {class: "form-horizontal"} do |f| %>
+	 <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.text_field :email, class: "form-control" %>        				
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.button :submit, class: "form-control" %>
+    </div>
+  </div>
+  <% end %>
+  <%= link_to "Вход", login_path %>
+</div>

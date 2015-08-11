@@ -7,7 +7,7 @@
   
   <div class="form-group">
     <div class="col-sm-7">
-      <%= f.input :translated_text, label: "Переведенный текст", cеlass: "form-control" %>
+      <%= f.input :translated_text, label: "Переведенный текст", class: "form-control" %>
     </div>
   </div>
   			
@@ -16,6 +16,8 @@
       <%= f.input :review_date, label: "Дата пересмотра", class: "form-control" %>
     </div>
   </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="form-group">
     <div class="col-sm-3">

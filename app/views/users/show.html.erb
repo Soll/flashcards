@@ -1,0 +1,14 @@
+<h3>Информация о пользователе</h3>
+<%= link_to "Редактировать пользователя", edit_user_path, class: "btn btn-primary btn-xs", role: "button" %>
+<%= link_to "Добавить карточку", new_card_path, class: "btn btn-primary btn-xs", role: "button" %>
+<%= link_to "Мои карточки", cards_path, class: "btn btn-primary btn-xs", role: "button" %>
+<table class="table-condensed">
+  <tr>
+  	<td>Email:</td>
+  	<td><%= @user.email %></td>
+  </tr>
+  <tr>
+  	<td>Password</td>
+  	<td><%= @user.crypted_password %></td>
+  </tr>
+</table>
