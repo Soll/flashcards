@@ -1,6 +1,6 @@
 class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  #storage :file
+  # storage :file
   storage :fog
 
   def store_dir
