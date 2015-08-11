@@ -12,10 +12,10 @@ class CardsController < ApplicationController
   def create
     @card = Card.create(card_params)
     if @card.errors.empty?
-  		redirect_to @card
-  	else
+      redirect_to @card
+    else
       render "new"
-  	end
+    end
   end
 
   def show
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
   def update
     @card.update_attributes(card_params)
     if @card.errors.empty?
-  	  redirect_to @card
+      redirect_to @card
     else
       render "edit"
     end

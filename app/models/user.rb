@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     config.authentications_class = Authentication
   end
 
-  has_many :authentications, :dependent => :destroy
+  has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
   has_many :cards, dependent: :destroy

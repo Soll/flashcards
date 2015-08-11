@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :set_user, only: [:show, :edit, :destroy, :update]
+  before_action :set_user, only: [:show, :edit, :destroy, :update]
   skip_before_filter :require_login, only: [:new, :create]
 
   def new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @user = login(params[:user][:email], params[:user][:password])
       redirect_to @user
     else
-    	render "new"
+      render "new"
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if @user.errors.empty?
       redirect_to @user
     else
-    	render "edit"
+      render "edit"
     end
   end
 
@@ -35,13 +35,14 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to root_path
   end
-	
-	private
-	def set_user
-    @user = current_user
-	end
 
-	def user_params
-		params.require(:user).permit(:email, :password)
-	end
+  private
+
+  def set_user
+    @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 end
