@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:edit, :update, :show, :destroy]
-  
+
   def index
     @cards = current_user.cards
   end
@@ -44,6 +44,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:id, :original_text, :translated_text, :review_date, :user_id)
+    params.require(:card).permit(:id, :original_text, :translated_text, :review_date, :user_id, :avatar)
   end
 end

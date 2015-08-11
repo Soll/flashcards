@@ -8,6 +8,7 @@
     <%= f.fields_for :cards do |card| %>
       <%= card.hidden_field :id, value: @card.id %>
       <%= card.hidden_field :original_text, value: @card.original_text %>
+      <%= image_tag @card.avatar %>
       <label>Текст</label>
       <p><%= @card.translated_text %></p>
       <label>Перевод</label>
