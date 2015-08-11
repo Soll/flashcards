@@ -115,21 +115,21 @@ Rails.application.config.sorcery.configure do |config|
   #config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
   #config.twitter.user_info_mapping = {:email => "screen_name"}
   # 
-  config.facebook.key = "898606506860732"
-  config.facebook.secret = "9e777f6606723f0f49842f88eff223ea"
+  config.facebook.key = Rails.application.secrets.facebook_key
+  config.facebook.secret = Rails.application.secrets.facebook_secret
   config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "name"}
   #config.facebook.access_permissions = ["email", "publish_actions"]
   #config.facebook.display = "page"
   #config.facebook.api_version = "v2.2"
   # 
-  config.github.key = "2d9563f5ff6224c68e37"
-  config.github.secret = "573cef18be7b9cd92fcf0cf21c28c7293896f2e3"
-  config.github.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=github"
-  config.github.user_info_mapping = {:email => "name"}
+  #config.github.key = ""
+  #config.github.secret = ""
+  #config.github.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=github"
+  #config.github.user_info_mapping = {:email => "name"}
   # 
-  config.google.key = "AIzaSyAKgnAegSKdehA97gdCppO_cZ9qj-X4QiQ"
-  config.google.secret = "duoeGWt9SS_l0UGKS2NjlziK"
+  config.google.key = Rails.application.secrets.google_key
+  config.google.secret = Rails.application.secrets.google_secret
   config.google.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=google"
   config.google.user_info_mapping = {:email => "email", :username => "name"}
   # 
