@@ -5,20 +5,20 @@ class Category < ActiveRecord::Base
   validates :name, uniqueness: true
 
   scope :active_category, -> { where(active: true) }
-  
+
   def self.get_active_category
     active_category.first
   end
 
   def set_category_active
-    self.update_column(:active, true)
+    update_column(:active, true)
   end
 
   def set_category_inactive
-    self.update_column(:active, false)
+    update_column(:active, false)
   end
 
   def category_status
-    self.active ? "Текущая" : "-"
+    active ? "Текущая" : "-"
   end
 end
