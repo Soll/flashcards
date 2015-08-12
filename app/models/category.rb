@@ -1,23 +1,24 @@
 class Category < ActiveRecord::Base
-	has_many :cards, dependent: :destroy
-	validates :name, presence: true
-	validates :name, uniqueness: true
+  has_many :cards, dependent: :destroy
 
-	scope :active_category, -> { where(active: true) }
+  validates :name, presence: true
+  validates :name, uniqueness: true
 
-	def self.get_active_category
-		first
-	end
+  scope :active_category, -> { where(active: true) }
+  
+  def self.get_active_category
+    active_category.first
+  end
 
-	def set_category_active
+  def set_category_active
     self.update_column(:active, true)
-	end
+  end
 
-	def set_category_inactive
+  def set_category_inactive
     self.update_column(:active, false)
-	end
+  end
 
-	def category_status
+  def category_status
     self.active ? "Текущая" : "-"
-	end
+  end
 end

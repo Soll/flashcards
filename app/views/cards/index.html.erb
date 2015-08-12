@@ -6,6 +6,7 @@
  				<td><strong>Исходный текст</strong></td>
  				<td><strong>Перевод</strong></td>
  				<td><strong>Дата перевода</strong></td>
+ 				<td><strong>Категория</strong></td>
  				<td><strong>Операции</strong></td>
  			</tr>
  			
@@ -15,6 +16,7 @@
  					<td><%= c.original_text %></td>
  					<td><%= c.translated_text %></td>
  					<td><%= c.review_date.strftime("%d/%m/%Y") %></td>
+ 					<td><%= c.category.name %></td>
  					<td><%= link_to "Редактировать", edit_card_path(c), 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button"  %>

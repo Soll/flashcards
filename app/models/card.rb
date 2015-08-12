@@ -5,12 +5,17 @@ class Card < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   scope :created_before, -> (data) { where("review_date <= ?", data) }
+  scope :from_active_category, -> { joins(:category).where('categories.active = ?', true) }
 
   validates :original_text, :translated_text,
             :review_date, :user_id, :category_id, presence: true
   validates_with StringCompare
 
   after_validation :set_review_date, on: [:create]
+
+  def self.random_record_from_active_category
+    offset(rand(Card.from_active_category.created_before(Time.now).count)).first
+  end
 
   def self.random_record
     offset(rand(Card.created_before(Time.now).count)).first

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get "search_active_category" => "categories#search_active_category"
   post "search_active_category" => "categories#search_active_category"
   post "change_current_category" => "categories#change_current_category"
-  
+  get "set_all_categories_inactive" => "categories#set_all_categories_inactive"
+
   post "check_translation" => "home#check_translation"
   get "login" => "user_sessions#new", :as => :login
   post "login", to: "user_sessions#create"

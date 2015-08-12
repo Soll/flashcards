@@ -1,15 +1,24 @@
 class CategoriesController < ApplicationController
   skip_before_filter :require_login
   before_action :set_category, only: [:edit, :destroy, :update]
-  before_action :search_active_category, on: [:change_current_category]
+  before_action :search_active_category, on: [:change_current_category,
+                                              :set_all_categories_inactive]
 
   def search_active_category
     @active_category = Category.get_active_category
+    @active_category ? @selected = @active_category.id : "0"
+  end
+
+  def set_all_categories_inactive
+    if @active_category
+      @active_category.set_category_inactive
+    end
+    redirect_to categories_path
   end
 
   def change_current_category
     if @active_category
-      @active_category.set_category_inactive          
+      @active_category.set_category_inactive
     end
     @new_cat = Category.find(params[:category][:id])
     @new_cat.set_category_active
