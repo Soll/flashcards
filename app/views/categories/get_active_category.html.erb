@@ -1,0 +1,18 @@
+<h4>Текущая категория</h4>
+<% @active_category ? @selected = @active_category.id : "0" %>
+<%= simple_form_for :category, url: { action: "change_current_category" }, 
+                               html: { class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <div class="col-sm-7">
+      <%= f.collection_select(:id, Category.all, :id, :name, 
+                              { selected: @selected }, 
+                              { class: "form-control" }) %>  				
+    </div>
+  </div>	
+  
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.submit "Изменить текущую категорию", class: "form-control" %>
+    </div>
+  </div>
+<% end %>

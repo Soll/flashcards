@@ -1,0 +1,41 @@
+<div class="container col-md-9">
+		<h4>Управление категориями</h4>
+		<p><%= link_to "Новая категория", new_category_path, 
+		    class: "btn btn-primary btn-xs", 
+ 				role: "button" %>
+       <%= link_to "Назначить текущую", get_active_category_path, 
+		    class: "btn btn-primary btn-xs", 
+ 				role: "button" %>
+       <%= link_to "Сбросить текущую категорию", set_no_active_categories_path, 
+		    class: "btn btn-primary btn-xs", 
+ 				role: "button" %>
+
+ 		</p>
+		<table class="table table-hover">
+ 			<tr>
+ 				<td><strong>#</strong></td>
+ 				<td><strong>Наименование</strong></td>
+ 				<td><strong>Статус</strong></td>
+ 				<td><strong>Карточек в категории</strong></td>
+ 				<td><strong>Операции</strong></td>
+ 			</tr>
+
+ 			<% @categories.each do |c| %>
+ 				<tr>
+ 					<td><%= c.id %></td>
+ 					<td><%= c.name %></td>
+ 					<td><%= c.category_status %></td>
+ 					<td><%= c.cards.count %></td>
+ 					<td><%= link_to "Редактировать", edit_category_path(c), 
+ 					        class: "btn btn-primary btn-xs", 
+ 					        role: "button"  %>
+ 					    
+ 					    <%= link_to "Удалить", category_path(c), 
+ 					        method: :delete, 
+ 					        data: { confirm: "Уверены?" }, 
+ 					        class: "btn btn-primary btn-xs", 
+ 					        role: "button" %></td>    
+ 				</tr>
+ 			<% end %>
+ 		</table>
+	</div>

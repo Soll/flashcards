@@ -1,0 +1,13 @@
+<%= simple_form_for @category, html: {class: "form-horizontal"} do |f| %>
+  <div class="form-group">
+    <div class="col-sm-7">
+      <%= f.input :name, label: "Наименование категории", class: "form-control" %>        				
+    </div>
+  </div>	
+  
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.submit "Добавить", class: "form-control" %>
+    </div>
+  </div>
+<% end %>
