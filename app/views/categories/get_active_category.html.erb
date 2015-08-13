@@ -1,4 +1,5 @@
 <h4>Текущая категория</h4>
+<% @active_category ? @selected = @active_category.id : "0" %>
 <%= simple_form_for :category, url: { action: "change_current_category" }, 
                                html: { class: "form-horizontal" } do |f| %>
   <div class="form-group">

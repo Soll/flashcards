@@ -2,8 +2,7 @@ class HomeController < ApplicationController
   skip_before_filter :require_login, only: [:index, :check_translation]
 
   def index
-    @card = Card.from_active_category.created_before(Time.now).random_record
-    if @card == nil
+    if (@card = Card.from_active_category.created_before(Time.now).random_record) == nil
       @card = Card.created_before(Time.now).random_record
     end
   end
