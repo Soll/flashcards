@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   scope :created_before, -> (data) { where("review_date <= ?", data) }
-  scope :from_active_category, -> { joins(:category).where('categories.active = ?', true) }
+  scope :from_active_category, -> { joins(:category).where("categories.active = ?", true) }
 
   validates :original_text, :translated_text,
             :review_date, :user_id, :category_id, presence: true
