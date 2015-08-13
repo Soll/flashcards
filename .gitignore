@@ -10,5 +10,5 @@
 !/log/.keep
 /tmp
 
-
+/config/secrets.yml
 /public/uploads/*

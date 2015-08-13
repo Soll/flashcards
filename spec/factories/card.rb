@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :card do
     original_text "das"
     translated_text "the"
