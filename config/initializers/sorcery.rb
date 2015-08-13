@@ -5,7 +5,7 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.key = Rails.application.secrets.facebook_key
   config.facebook.secret = Rails.application.secrets.facebook_secret
   config.facebook.callback_url = "https://agile-plateau-3822.herokuapp.com/oauth/callback?provider=facebook"
-  config.facebook.user_info_mapping = {:email => "email" } #etc
+  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username" } #etc
   config.facebook.scope = "email,user_hometown,user_likes" #etc
   
   config.google.key = Rails.application.secrets.google_key
