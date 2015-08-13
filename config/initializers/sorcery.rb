@@ -4,13 +4,13 @@ Rails.application.config.sorcery.configure do |config|
   
   config.facebook.key = Rails.application.secrets.facebook_key
   config.facebook.secret = Rails.application.secrets.facebook_secret
-  config.facebook.callback_url = "https://localhost:3000/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "https://agile-plateau-3822.herokuapp.com/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "email" } #etc
   config.facebook.scope = "email,user_hometown,user_likes" #etc
   
   config.google.key = Rails.application.secrets.google_key
   config.google.secret = Rails.application.secrets.google_secret
-  config.google.callback_url = "https://localhost:3000/oauth/callback?provider=google"
+  config.google.callback_url = "https://agile-plateau-3822.herokuapp.com/oauth/callback?provider=google"
   config.google.user_info_mapping = { email: "email" }
   
   config.user_config do |user|
