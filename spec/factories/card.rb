@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :card do
     original_text "das"
     translated_text "the"
@@ -13,7 +14,7 @@ FactoryGirl.define do
     f.salt "B1D8NG63C3SiZjPk1TLv"
   end
 
-   factory :assoc_cat, class: "Category" do |f|
+  factory :assoc_cat, class: "Category" do |f|
     f.name "das das das"
     f.active false
   end
