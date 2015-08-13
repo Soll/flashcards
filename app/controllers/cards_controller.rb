@@ -1,6 +1,11 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:edit, :update, :show, :destroy]
-
+  before_action :set_card, only: [:edit, :update, :show, :destroy, :set_review_date_to_now]
+  
+  def set_review_date_to_now
+    @card.update_column(:review_date, Time.now)
+    redirect_to cards_path    
+  end
+  
   def index
     @cards = current_user.cards
   end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   root "home#index"
+  post "cards/:id" => "cards#set_review_date_to_now"
 
   get "get_active_category" => "categories#get_active_category"
   post "change_current_category" => "categories#change_current_category"
