@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'simple_form'
@@ -27,4 +28,6 @@ end
 group :test do  
   gem 'capybara'
 end
+
+ruby "2.2.0"
 
