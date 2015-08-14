@@ -11,7 +11,7 @@ class Card < ActiveRecord::Base
             :review_date, :user_id, :category_id, presence: true
   validates_with StringCompare
 
-  after_validation :set_review_date, on: [:create]
+  before_validation :set_review_date, on: [:create]
 
   def self.random_record_from_active_category
     offset(rand(Card.from_active_category.created_before(Time.now).count)).first
