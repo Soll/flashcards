@@ -21,8 +21,44 @@ class Card < ActiveRecord::Base
     offset(rand(Card.created_before(Time.now).count)).first
   end
 
+  def set_term(level)
+    if level == 0
+      @term = 12.hours.from_now
+    elsif level == 1
+      @term = 3.days.from_now
+    elsif level == 2
+      @term = 1.week.from_now
+    elsif level == 3
+      @term = 2.weeks.from_now
+    elsif level == 4
+      @term = 30.days.from_now
+    end
+  end
+
   def set_new_review_date
-    update_column(:review_date, 3.days.from_now)
+    update_column(:review_date, set_term(cur_level))
+  end
+
+  def reset_bad_attempts
+    update_column(:bad_attempts, 0)
+  end
+
+  def inc_bad_attempts
+    if bad_attempts < 3
+      update_column(:bad_attempts, bad_attempts + 1)
+    end
+  end
+
+  def up_level
+    if cur_level < 4
+      update_column(:cur_level, cur_level + 1)
+    end
+  end
+
+  def down_level
+    if cur_level > 0
+      update_column(:cur_level, cur_level - 1)
+    end
   end
 
   def check_translation(review_text)
@@ -31,6 +67,6 @@ class Card < ActiveRecord::Base
 
   protected
   def set_review_date
-    self.review_date = 3.days.from_now
+    self.review_date = Time.now
   end
 end
