@@ -2,4 +2,5 @@
 	<h4>Вход для зарегистрированных пользователей</h4>
 	<%= render partial: "form", locals: {user: @user} %>
 	 <%= link_to 'Login with Google', auth_at_provider_path(:provider => :google) %>
+	 <%= link_to 'Login with Github', auth_at_provider_path(:provider => :github) %>
 </div>
