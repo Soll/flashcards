@@ -17,6 +17,7 @@ Rails.application.config.sorcery.configure do |config|
   config.github.secret = "2fa38968aa89035a43c8a2796b00cd6d4f4fc8bd"
   config.github.callback_url = "https://agile-plateau-3822.herokuapp.com/oauth/callback?provider=github"
   config.github.user_info_mapping = { email: "email"}
+  config.github.scope = "user"
     
   config.user_config do |user|
     user.username_attribute_names = :email

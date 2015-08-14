@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :cards, dependent: :destroy
 
-  validates :email, :crypted_password, presence: true
+  validates :crypted_password, presence: true
   validates :email, uniqueness: true
+  validates :email, presence: true, if: :oauth_login?
 end
