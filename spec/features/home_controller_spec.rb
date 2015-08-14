@@ -52,7 +52,7 @@ describe HomeController do
     fill_in "user_email", with: "user@mail.ru"
     fill_in "user_password", with: "222222"
     click_button "submit"
-    click_link "Мои карточки"
+    click_link "Список карточек"
     expect(page).to have_content "Список карточек"
   end
 end
