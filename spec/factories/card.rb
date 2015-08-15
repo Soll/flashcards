@@ -5,6 +5,8 @@ FactoryGirl.define do
     association :user, factory: :assoc_user
     association :category, factory: :assoc_cat
     review_date { Time.now }
+    cur_level 0
+    bad_attempts 0
   end
 
   factory :assoc_user, class: "User" do |f|
