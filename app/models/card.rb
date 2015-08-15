@@ -45,29 +45,22 @@ class Card < ActiveRecord::Base
   end
 
   def inc_bad_attempts
-    if bad_attempts < 3
-      update_column(:bad_attempts, bad_attempts + 1)
-    end
+    update_column(:bad_attempts, bad_attempts + 1) if bad_attempts < 3
   end
 
   def up_level
-    if cur_level < 4
-      update_column(:cur_level, cur_level + 1)
-    end
+    update_column(:cur_level, cur_level + 1) if cur_level < 4
   end
 
   def down_level
-    if cur_level > 0
-      update_column(:cur_level, cur_level - 1)
-    end
+    update_column(:cur_level, cur_level - 1) if cur_level > 0
   end
 
   def check_translation(review_text)
-    if original_text.mb_chars.downcase == review_text.mb_chars.downcase
+    !!if original_text.mb_chars.downcase == review_text.mb_chars.downcase
       reset_bad_attempts
       set_new_review_date
       up_level
-      return true
     else
       inc_bad_attempts
       if bad_attempts == 3
@@ -75,7 +68,6 @@ class Card < ActiveRecord::Base
         down_level
         set_new_review_date
       end
-      return false
     end
   end
 
