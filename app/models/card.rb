@@ -57,7 +57,7 @@ class Card < ActiveRecord::Base
   end
 
   def check_translation(review_text)
-    !!if original_text.mb_chars.downcase == review_text.mb_chars.downcase
+  !!if original_text.mb_chars.downcase == review_text.mb_chars.downcase
       reset_bad_attempts
       set_new_review_date
       up_level
