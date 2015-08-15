@@ -32,7 +32,7 @@ describe Card do
   it "must level up card when translation is correct" do
     card = FactoryGirl.create(:card)
     old_level = card.cur_level
-    card.check_translation("das")  
+    card.check_translation("das")
     expect(old_level < card.cur_level).to be true
   end
 
@@ -45,14 +45,12 @@ describe Card do
 
   it "must down level card after 3 bad attempts" do
     card = FactoryGirl.create(:card, bad_attempts: 3, cur_level: 4)
-    cur_lev = card.cur_level
     card.check_translation("fann")
     expect(card.cur_level).to be 3
   end
 
   it "must reset bad attempts after 3 bad attempts" do
     card = FactoryGirl.create(:card, bad_attempts: 3, cur_level: 4)
-    cur_bad = card.bad_attempts
     card.check_translation("fann")
     expect(card.bad_attempts).to be 0
   end

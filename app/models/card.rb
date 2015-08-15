@@ -22,7 +22,8 @@ class Card < ActiveRecord::Base
   end
 
   def set_term(level)
-    @term = if level == 0
+    @term =
+    if level == 0
       12.hours.from_now
     elsif level == 1
       3.days.from_now
