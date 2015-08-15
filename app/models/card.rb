@@ -22,16 +22,16 @@ class Card < ActiveRecord::Base
   end
 
   def set_term(level)
-    if level == 0
-      @term = 12.hours.from_now
+    @term = if level == 0
+      12.hours.from_now
     elsif level == 1
-      @term = 3.days.from_now
+      3.days.from_now
     elsif level == 2
-      @term = 1.week.from_now
+      1.week.from_now
     elsif level == 3
-      @term = 2.weeks.from_now
+      2.weeks.from_now
     elsif level == 4
-      @term = 30.days.from_now
+      30.days.from_now
     end
   end
 
@@ -62,7 +62,20 @@ class Card < ActiveRecord::Base
   end
 
   def check_translation(review_text)
-    original_text.mb_chars.downcase == review_text.mb_chars.downcase
+    if original_text.mb_chars.downcase == review_text.mb_chars.downcase
+      reset_bad_attempts
+      set_new_review_date
+      up_level
+      return true
+    else
+      inc_bad_attempts
+      if bad_attempts == 3
+        reset_bad_attempts
+        down_level
+        set_new_review_date
+      end
+      return false
+    end
   end
 
   protected
