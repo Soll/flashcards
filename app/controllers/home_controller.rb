@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 
   def check_translation
     @card = Card.find(params[:home][:cards][:id])
+    @card.review_text = params[:home][:cards][:review_text]
     if @card.check_translation(params[:home][:cards][:review_text])
       render "correct_translation"
     else

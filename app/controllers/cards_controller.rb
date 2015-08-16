@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   end
   
   def index
-    @cards = current_user.cards
+    @cards = current_user.cards.order(:id)
   end
 
   def new
