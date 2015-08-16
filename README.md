@@ -1,2 +1,2 @@
-[![Code Climate](https://codeclimate.com/repos/55d0dab5e30ba0576001a9bf/badges/da84385c15f583963397/gpa.svg)](https://codeclimate.com/repos/55d0dab5e30ba0576001a9bf/feed)
+[![Code Climate](https://codeclimate.com/github/Soll/flashcards/badges/gpa.svg)](https://codeclimate.com/github/Soll/flashcards)
 [![Build Status](https://travis-ci.org/Soll/flashcards.svg?branch=master)](https://travis-ci.org/Soll/flashcards)
