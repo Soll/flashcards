@@ -59,14 +59,15 @@ class Card < ActiveRecord::Base
   end
 
   def check_translation(review_text)
-  sql = %(
-    SELECT original_text AS s_text, similarity(original_text, '#{review_text}') AS distance 
-    FROM cards WHERE original_text % '#{review_text}'
-    ORDER BY distance DESC 
-  )
-  @data = ActiveRecord::Base.connection.query(sql)
-  
-  if @data.count > 0
+    sql = %(
+      SELECT original_text AS s_text, 
+      similarity(original_text, '#{review_text}') AS distance
+      FROM cards WHERE original_text % '#{review_text}'
+      ORDER BY distance DESC
+    )
+    @data = ActiveRecord::Base.connection.query(sql)
+
+    if @data.count > 0
       reset_bad_attempts
       set_new_review_date
       up_level
