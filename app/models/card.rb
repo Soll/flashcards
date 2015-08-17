@@ -58,20 +58,22 @@ class Card < ActiveRecord::Base
     update_column(:cur_level, cur_level - 1) if cur_level > 0
   end
 
-  def check_translation(review_text)
-    sql = %(
+  def look_for_similar(review_text)
+    ActiveRecord::Base.connection.query(%(
       SELECT original_text AS s_text, 
       similarity(original_text, '#{review_text}') AS distance
       FROM cards WHERE original_text % '#{review_text}'
       ORDER BY distance DESC
-    )
-    @data = ActiveRecord::Base.connection.query(sql)
+    ))
+  end
+
+  def check_translation(review_text)
+    @data = look_for_similar(review_text)
 
     if @data.count > 0
       reset_bad_attempts
       set_new_review_date
       up_level
-      true
     else
       inc_bad_attempts
       if bad_attempts == 3
@@ -79,8 +81,8 @@ class Card < ActiveRecord::Base
         down_level
         set_new_review_date
       end
-      false
     end
+    @data.any?
   end
 
   protected
