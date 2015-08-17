@@ -107,4 +107,10 @@ describe Card do
     card.set_new_review_date
     expect((card.review_date - old_date).to_i).to be 30.days.to_i
   end
+
+  it "look for similar cards" do
+    card = FactoryGirl.create(:card, original_text: "qwerty")
+    @data = card.look_for_similar("qwerut")
+    expect(@data.first[0]).to eq("qwerty")
+    end
 end
