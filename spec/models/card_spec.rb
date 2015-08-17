@@ -113,4 +113,22 @@ describe Card do
     @data = card.look_for_similar("qwerut")
     expect(@data.first[0]).to eq("qwerty")
   end
+
+  it "wrong word finds nothing" do
+    card = FactoryGirl.create(:card, original_text: "application")
+    @data = card.look_for_similar("apologize")
+    expect(@data.any?).to be false
+  end
+
+  it "maybe two or more words" do
+    card = FactoryGirl.create(:card, original_text: "robocop")
+    card1 = Card.create(id: 345,
+                        original_text: "rubocop",
+                        translated_text: "ssdsdsd",
+                        review_date: Time.now,
+                        user_id: 1,
+                        category_id: 1)
+    @data = card.look_for_similar("ribocop")
+    expect(@data.count).to be 2
+  end
 end
