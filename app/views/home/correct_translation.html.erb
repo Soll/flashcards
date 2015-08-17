@@ -1,1 +1,16 @@
 <h2>Правильный перевод!</h2>
+<% if @card.data.map { |a| a[1] }.max.to_f < 1 %>
+  <p>Вероятно, вы ошиблись при вводе перевода! Так уж и быть, зачтем вам эту попытку как правильную, но в будущем будьте внимательнее! )))</p>
+  <p>Вы написали: <%= @card.review_text %></p>
+  <p>Возможно вы имели в виду:</p>
+  <table class="table table-hover table-condensed table-bordered">
+  <tr>
+    <td><strong>Вариант</strong></td>
+  </tr>
+  <% @card.data.each do |word| %>
+    <tr>
+      <td><%= word.first %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>

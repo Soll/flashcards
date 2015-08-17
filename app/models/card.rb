@@ -2,6 +2,8 @@ class Card < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  attr_accessor :data, :review_text
+
   mount_uploader :avatar, AvatarUploader
 
   scope :created_before, -> (data) { where("review_date <= ?", data) }
@@ -56,8 +58,19 @@ class Card < ActiveRecord::Base
     update_column(:cur_level, cur_level - 1) if cur_level > 0
   end
 
+  def look_for_similar(review_text)
+    ActiveRecord::Base.connection.query(%(
+      SELECT original_text AS s_text, 
+      similarity(original_text, '#{review_text}') AS distance
+      FROM cards WHERE original_text % '#{review_text}'
+      ORDER BY distance DESC
+    ))
+  end
+
   def check_translation(review_text)
-  !!if original_text.mb_chars.downcase == review_text.mb_chars.downcase
+    @data = look_for_similar(review_text)
+
+    if @data.count > 0
       reset_bad_attempts
       set_new_review_date
       up_level
@@ -69,6 +82,7 @@ class Card < ActiveRecord::Base
         set_new_review_date
       end
     end
+    @data.any?
   end
 
   protected

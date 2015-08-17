@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.errors.empty?
       @user = login(params[:user][:email], params[:user][:password])
-      redirect_to @user
+      redirect_to @user, only_path: true
     else
       render "new"
     end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     @user.update_attributes(user_params)
     if @user.errors.empty?
-      redirect_to @user
+      redirect_to @user, only_path: true
     else
       render "edit"
     end
