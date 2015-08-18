@@ -1,7 +1,10 @@
-<h1>Здравствуйте, <%= @user.email %>!</h1>
+<h1>Здравствуйте, <%= @email %>!</h1>
   <p>
     Вы зарегистрированы на сайте flashcards.com<br>
   </p>
+  <% @cards.each do |card| %>
+    <%= card.original_text%><br>
+  <% end %>
   <p>
     Что бы перейти на сайт, пройдите по ссылке: <%= @url %>.
   </p>
