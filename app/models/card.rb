@@ -15,6 +15,14 @@ class Card < ActiveRecord::Base
 
   before_validation :set_review_date, on: [:create]
 
+  def self.send_letters
+    if Card.created_before(Time.now).any?
+      User.all.each do |user|
+        CardMailer.send_expired_cards(user.email).deliver_now
+      end
+    end
+  end
+
   def self.random_record_from_active_category
     offset(rand(Card.from_active_category.created_before(Time.now).count)).first
   end

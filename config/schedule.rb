@@ -13,8 +13,8 @@
 #   rake "some:great:rake:task"
 # end
 #
-every 1.day, :at => '8:00 am' do
-  runner "HomeController.send_letters"
+every 1.day, at: "8:00 am" do
+  runner "Card.send_letters"
 end
 
 # Learn more: http://github.com/javan/whenever

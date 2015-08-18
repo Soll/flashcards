@@ -6,6 +6,7 @@ class CardMailer < ApplicationMailer
     @url = "http://flashcards.com"
 
     @cards = Card.created_before(Time.now)
-    mail(to: @email, subject: "Простроченные карточки на проверку от сайта Flashcards.com")    
+    mail(to: @email,
+         subject: "Простроченные карточки на проверку от сайта Flashcards.com")
   end
 end
