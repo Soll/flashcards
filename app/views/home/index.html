@@ -3,7 +3,7 @@
     Первый в мире удобный менеджер флеш-карточек. Именно так.
   </p>
   <h4>Случайная карточка для проверки</h4>
-  
+ 
   <% if @card %>
     <%= simple_form_for :home, url: { action: "check_translation" } do |f| %>
       <%= f.fields_for :cards do |card| %>
