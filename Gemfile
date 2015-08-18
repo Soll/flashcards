@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'whenever', :require => false
 gem 'rails_12factor', group: :production
 gem 'rails', '4.2.0'
 gem 'pg'

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "get_active_category" => "categories#get_active_category"
   post "change_current_category" => "categories#change_current_category"
   get "set_no_active_categories" => "categories#set_no_active_categories"
+  get "send_letters" => "home#send_letters"
 
   post "check_translation" => "home#check_translation"
   get "login" => "user_sessions#new", :as => :login

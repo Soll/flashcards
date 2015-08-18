@@ -1,5 +1,13 @@
 class HomeController < ApplicationController
-  skip_before_filter :require_login, only: [:index, :check_translation]
+  skip_before_filter :require_login, only: [:index, :check_translation, :send_letters]
+
+  def send_letters
+    @cards = Card.created_before(Time.now)
+    @cards.each do |l|
+      CardMailer.send_expired_cards(l.user).deliver
+    end
+    redirect_to root_path
+  end
 
   def index
     if (@card = Card.from_active_category.created_before(Time.now).random_record) == nil
