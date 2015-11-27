@@ -29,6 +29,3 @@ end
 group :test do  
   gem 'capybara'
 end
-
-ruby "2.2.0"
-
