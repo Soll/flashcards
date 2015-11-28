@@ -20,4 +20,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  flashcarder: "Flashcarder!"
+  description: "The world's first user-friendly cards manager. Exactly!"

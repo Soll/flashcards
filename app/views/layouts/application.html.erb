@@ -36,13 +36,21 @@
           <li><%= link_to "Вошёл в систему как: #{current_user.email}", user_path(current_user) %></li>
           <li><%= link_to "[ВЫХОД]", logout_path, method: :post %></li>
         <% end %>
+        
+        <% I18n.available_locales.each do |loc| %>
+        <li>
+          <a href="?locale=<%= loc %>" style="padding-left: 3px; padding-right: 3px;"><%= loc.upcase %></a>
+        </li>
+        <% end %>
+
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
  <section id="container">
     <header class="clearfix">
-      <h1>Флэшкарточкер</h1>      
+      <h1><%= t :flashcarder  %></h1>      
     </header>
 
 <%= yield %>
