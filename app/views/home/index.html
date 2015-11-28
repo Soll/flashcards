@@ -2,7 +2,7 @@
   <p style="font-size: 22px;">
     <%= t :description %>
   </p>
-  <h4>Случайная карточка для проверки</h4>
+  <h4><%= "#{t('random_card')}" %></h4>
  
   <% if @card %>
     <%= simple_form_for :home, url: { action: "check_translation" } do |f| %>
@@ -10,15 +10,15 @@
         <%= card.hidden_field :id, value: @card.id %>
         <%= card.hidden_field :original_text, value: @card.original_text %>
         <%= image_tag @card.avatar_url if @card.avatar? %>
-        <label>Текст</label>
+        <label><%= "#{t('text')}" %></label>
         <p><%= @card.translated_text %></p>
-        <label>Перевод</label>
+        <label><%= "#{t('translation')}" %></label>
         <%= card.text_field :review_text %>
   	  <% end %>
-      <%= f.submit "Проверить!" %>
+      <%= f.submit "#{t('check')}" %>
     <% end %>
   <% else %>
-    <h4>Все карточки проверены! Но если хочется, можно через свою учетную запись поправить дату просмотра карточки и она появится снова.</h4>
+    <h4><%= "#{t('all_cards_checked')}" %></h4>
   <% end %>
   
 </section>

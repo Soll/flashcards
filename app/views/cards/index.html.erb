@@ -1,21 +1,21 @@
 <div class="container col-md-10">
-		<h4>Список карточек</h4>
-		<h5>Уровни:</h5>
-		<p>0 - следующий перевод через 12 часов</p>
-		<p>1 - следующий перевод через 3 дня</p>
-		<p>2 - следующий перевод через 1 неделю</p>
-		<p>3 - следующий перевод через 2 недели</p>
-		<p>4 - следующий перевод через 1 месяц</p>
+		<h4><%= "#{t('cards_list')}" %></h4>
+		<h5><%= "#{t('levels')}"%>:</h5>
+		<p>0 - <%= "#{t('next_try_after')}"%> 12 <%= "#{t('hours')}" %></p>
+		<p>1 - <%= "#{t('next_try_after')}"%> 3 <%= "#{t('days')}" %></p>
+		<p>2 - <%= "#{t('next_try_after')}"%> 1 <%= "#{t('weeks')}" %></p>
+		<p>3 - <%= "#{t('next_try_after')}"%> 2 <%= "#{t('weeks')}" %></p>
+		<p>4 - <%= "#{t('next_try_after')}"%> 1 <%= "#{t('months')}" %></p>
 		<table class="table table-hover">
  			<tr>
  				<td><strong>#</strong></td>
- 				<td><strong>Исходный текст</strong></td>
- 				<td><strong>Перевод</strong></td>
- 				<td><strong>Дата проверки</strong></td>
- 				<td><strong>Категория</strong></td>
- 				<td><strong>Плохие попытки</strong></td>
- 				<td><strong>Текущий уровень</strong></td>
- 				<td><strong>Операции</strong></td>
+ 				<td><strong><%= "#{t('original_text')}" %></strong></td>
+ 				<td><strong><%= "#{t('translated_text')}" %></strong></td>
+ 				<td><strong><%= "#{t('check_date')}" %></strong></td>
+ 				<td><strong><%= "#{t('category')}" %></strong></td>
+ 				<td><strong><%= "#{t('bad_attempts')}" %></strong></td>
+ 				<td><strong><%= "#{t('current_level')}" %></strong></td>
+ 				<td><strong><%= "#{t('actions')}" %></strong></td>
  			</tr>
  			
  			<% @cards.each do |c| %>
@@ -27,17 +27,17 @@
  					<td><%= c.category.name %></td>
  					<td><%= c.bad_attempts %></td>
  					<td><%= c.cur_level %></td>
- 					<td><%= link_to "Редактировать", edit_card_path(c), 
+ 					<td><%= link_to "#{t('edit')}", edit_card_path(c), 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button"  %>
  					    
- 					    <%= link_to "Удалить", card_path(c), 
+ 					    <%= link_to "#{t('delete')}", card_path(c), 
  					        method: :delete, 
- 					        data: { confirm: "Уверены?" }, 
+ 					        data: { confirm: "#{t('sure')}?" }, 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button" %>
 
- 					     <%= link_to "На проверку!", card_path(c),
+ 					     <%= link_to "#{t('check_it')}!", card_path(c),
  					        method: :set_review_date_to_now, 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button"  %></td>

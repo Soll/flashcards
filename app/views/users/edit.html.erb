@@ -1,5 +1,5 @@
-<h3>Информация о пользователе</h3>
-<%= link_to "Вернуться к профилю пользователя", user_path(current_user), class: "btn btn-primary btn-xs", role: "button" %><br /><br />
+<h3><%= "#{t('user_info')}" %></h3>
+<%= link_to "#{t('back_to_user_profile')}", user_path(current_user), class: "btn btn-primary btn-xs", role: "button" %><br /><br />
 <div class="container">
   <%= form_for current_user, html: {class: "form-horizontal"} do |f| %>
    <label>Email:</label>
@@ -8,13 +8,13 @@
       <%= f.text_field :email, class: "form-control" %>        				
     </div>
   </div>
-  <label>Password:</label>
+  <label><%= "#{t('password')}" %></label>
   <div class="form-group">
     <div class="col-sm-4">
       <%= f.password_field :password, class: "form-control" %>
     </div>
   </div>
-  <label>Language:</label>
+  <label><%= "#{t('language')}" %></label>
   <div class="form-group">
     <div class="col-sm-7">
       <%= select_tag 'user[locale]', options_for_select(I18n.available_locales, I18n.locale.to_sym) %>

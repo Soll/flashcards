@@ -1,5 +1,5 @@
 <div class="container">
-	<h4>Регистрация нового пользователя</h4>
+	<h4><%= "#{t('new_user')}" %></h4>
 	<%= form_for @user, html: {class: "form-horizontal"} do |f| %>
 	 <div class="form-group">
     <div class="col-sm-4">
@@ -25,5 +25,5 @@
   </div>
   <% end %>
   
-  <%= link_to "Вход", login_path %>
+  <%= link_to "#{t('enter')}", login_path %>
 </div>
