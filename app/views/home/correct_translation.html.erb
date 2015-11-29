@@ -1,11 +1,11 @@
-<h2><%= "#{t('correct')}" %></h2>
+<h2><%= t :correct %></h2>
 <% if @card.data.map { |a| a[1] }.max.to_f < 1 %>
-  <p><%= "#{t('wrong_translation')}" %></p>
-  <p><%= "#{t('you_wrote')}" %>: <%= @card.review_text %></p>
-  <p><%= "#{t('you_meant')}" %>:</p>
+  <p><%= t :wrong_translation %></p>
+  <p><%= t :you_wrote %>: <%= @card.review_text %></p>
+  <p><%= t :you_meant %>:</p>
   <table class="table table-hover table-condensed table-bordered">
   <tr>
-    <td><strong><%= "#{t('variant')}" %></strong></td>
+    <td><strong><%= t :variant %></strong></td>
   </tr>
   <% @card.data.each do |word| %>
     <tr>

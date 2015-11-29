@@ -1,24 +1,24 @@
 <div class="container col-md-7">
-<h3><%= "#{t('card')}" %> # <%= @card.id %> </h3>
+<h3><%= t :card %> # <%= @card.id %> </h3>
 <table class="table table-hover table-condensed table-bordered">
   <tr>
-    <td><%= "#{t('original_text')}" %></td>
+    <td><%= t :original_text %></td>
     <td><%= @card.original_text %></td>
   </tr>
   <tr>
-    <td><%= "#{t('translated_text')}" %></td>
+    <td><%= t :translated_text %></td>
     <td><%= @card.translated_text %></td>
   </tr>
   <tr>
-    <td><%= "#{t('check_date')}" %></td>
+    <td><%= t :check_date %></td>
     <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
   </tr>
   <tr>
-    <td><%= "#{t('image')}" %></td>
+    <td><%= t :image %></td>
     <td><%= image_tag @card.avatar_url %></td>
   </tr>
   <tr>
-    <td><%= "#{t('owner')}" %></td>
+    <td><%= t :owner %></td>
     <td><%= @card.user.email %></td>
   </tr>  
 </table>

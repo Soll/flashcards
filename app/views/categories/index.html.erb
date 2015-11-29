@@ -1,5 +1,5 @@
 <div class="container col-md-9">
-		<h4><%= "#{t('card_manager')}" %></h4>
+		<h4><%= t :card_manager %></h4>
 		<p><%= link_to "#{t('new_cat')}", new_category_path, 
 		    class: "btn btn-primary btn-xs", 
  				role: "button" %>
@@ -14,10 +14,10 @@
 		<table class="table table-hover">
  			<tr>
  				<td><strong>#</strong></td>
- 				<td><strong><%= "#{t('cat_name')}" %></strong></td>
- 				<td><strong><%= "#{t('status')}" %></strong></td>
- 				<td><strong><%= "#{t('cards_in_cat')}" %></strong></td>
- 				<td><strong><%= "#{t('actions')}" %></strong></td>
+ 				<td><strong><%= t :cat_name %></strong></td>
+ 				<td><strong><%= t :status %></strong></td>
+ 				<td><strong><%= t :cards_in_cat %></strong></td>
+ 				<td><strong><%= t :actions %></strong></td>
  			</tr>
 
  			<% @categories.each do |c| %>

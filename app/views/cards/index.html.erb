@@ -1,21 +1,21 @@
 <div class="container col-md-10">
-		<h4><%= "#{t('cards_list')}" %></h4>
-		<h5><%= "#{t('levels')}"%>:</h5>
-		<p>0 - <%= "#{t('next_try_after')}"%> 12 <%= "#{t('hours')}" %></p>
-		<p>1 - <%= "#{t('next_try_after')}"%> 3 <%= "#{t('days')}" %></p>
-		<p>2 - <%= "#{t('next_try_after')}"%> 1 <%= "#{t('weeks')}" %></p>
-		<p>3 - <%= "#{t('next_try_after')}"%> 2 <%= "#{t('weeks')}" %></p>
-		<p>4 - <%= "#{t('next_try_after')}"%> 1 <%= "#{t('months')}" %></p>
+		<h4><%= t :cards_list %></h4>
+		<h5><%= t :levels %>:</h5>
+		<p>0 - <%= t :next_try_after %> 12 <%= t :hours %></p>
+		<p>1 - <%= t :next_try_after %> 3 <%= t :days %></p>
+		<p>2 - <%= t :next_try_after %> 1 <%= t :weeks %></p>
+		<p>3 - <%= t :next_try_after %> 2 <%= t :weeks %></p>
+		<p>4 - <%= t :next_try_after %> 1 <%= t :months %></p>
 		<table class="table table-hover">
  			<tr>
  				<td><strong>#</strong></td>
- 				<td><strong><%= "#{t('original_text')}" %></strong></td>
- 				<td><strong><%= "#{t('translated_text')}" %></strong></td>
- 				<td><strong><%= "#{t('check_date')}" %></strong></td>
- 				<td><strong><%= "#{t('category')}" %></strong></td>
- 				<td><strong><%= "#{t('bad_attempts')}" %></strong></td>
- 				<td><strong><%= "#{t('current_level')}" %></strong></td>
- 				<td><strong><%= "#{t('actions')}" %></strong></td>
+ 				<td><strong><%= t :original_text %></strong></td>
+ 				<td><strong><%= t :translated_text %></strong></td>
+ 				<td><strong><%= t :check_date %></strong></td>
+ 				<td><strong><%= t :category %></strong></td>
+ 				<td><strong><%= t :bad_attempts %></strong></td>
+ 				<td><strong><%= t :current_level %></strong></td>
+ 				<td><strong><%= t :actions %></strong></td>
  			</tr>
  			
  			<% @cards.each do |c| %>
