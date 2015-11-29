@@ -1,5 +1,5 @@
 <div class="container">
-  <h4>Вход в систему</h4>
+  <h4><%= t :login %></h4>
   <%= form_for @user, url: {controller: "user_sessions", action: "new"}, 
                     html: {class: "form-horizontal"} do |f| %>
    <div class="form-group">
@@ -20,5 +20,5 @@
     </div>
   </div>
   <% end %>
-  <%= link_to "Регистрация", new_user_path %>
+  <%= link_to t :registration, new_user_path %>
  </div>
