@@ -1,12 +1,12 @@
 <div class="container col-md-9">
 		<h4><%= t :card_manager %></h4>
-		<p><%= link_to "#{t('new_cat')}", new_category_path, 
+		<p><%= link_to (t :new_cat), new_category_path, 
 		    class: "btn btn-primary btn-xs", 
  				role: "button" %>
-       <%= link_to "#{t('make_current_cat')}", get_active_category_path, 
+       <%= link_to (t :make_current_cat), get_active_category_path, 
 		    class: "btn btn-primary btn-xs", 
  				role: "button" %>
-       <%= link_to "#{t('reset_cur_cat')}", set_no_active_categories_path, 
+       <%= link_to (t :reset_cur_cat), set_no_active_categories_path, 
 		    class: "btn btn-primary btn-xs", 
  				role: "button" %>
 
@@ -26,13 +26,13 @@
  					<td><%= c.name %></td>
  					<td><%= c.category_status %></td>
  					<td><%= c.cards.count %></td>
- 					<td><%= link_to "#{t('edit')}", edit_category_path(c), 
+ 					<td><%= link_to (t :edit), edit_category_path(c), 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button"  %>
  					    
- 					    <%= link_to "#{t('delete')}", category_path(c), 
+ 					    <%= link_to (t :delete), category_path(c), 
  					        method: :delete, 
- 					        data: { confirm: "#{t('sure')}?" }, 
+ 					        data: { confirm: (t :sure) }, 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button" %></td>    
  				</tr>

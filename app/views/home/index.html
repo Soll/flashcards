@@ -15,7 +15,7 @@
         <label><%= t :translation %></label>
         <%= card.text_field :review_text %>
   	  <% end %>
-      <%= f.submit "#{t('check')}" %>
+      <%= f.submit t :check %>
     <% end %>
   <% else %>
     <h4><%= t :all_cards_checked %></h4>

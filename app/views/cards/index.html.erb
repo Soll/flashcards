@@ -27,17 +27,17 @@
  					<td><%= c.category.name %></td>
  					<td><%= c.bad_attempts %></td>
  					<td><%= c.cur_level %></td>
- 					<td><%= link_to "#{t('edit')}", edit_card_path(c), 
+ 					<td><%= link_to (t :edit), edit_card_path(c), 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button"  %>
  					    
- 					    <%= link_to "#{t('delete')}", card_path(c), 
+ 					    <%= link_to (t :delete), card_path(c), 
  					        method: :delete, 
- 					        data: { confirm: "#{t('sure')}?" }, 
+ 					        data: { confirm: (t :sure) }, 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button" %>
 
- 					     <%= link_to "#{t('check_it')}!", card_path(c),
+ 					     <%= link_to (t :check_it), card_path(c),
  					        method: :set_review_date_to_now, 
  					        class: "btn btn-primary btn-xs", 
  					        role: "button"  %></td>
